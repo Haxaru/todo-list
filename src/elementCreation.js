@@ -34,7 +34,7 @@ const newProject = (title = "New Project") => {
   return div;
 };
 
-const newTodo = (title = "New Todo", content = "", date = "Unknown") => {
+const newTodo = (title = "New Todo", content = "") => {
   const div = newDivElement("todo-listing");
 
   const sectionOne = newDivElement();
@@ -53,7 +53,7 @@ const newTodo = (title = "New Todo", content = "", date = "Unknown") => {
 
   const dateDiv = newDivElement();
 
-  date = `${format(new Date(), "MMM.dd.yyy")}`;
+  const date = `${format(new Date(), "MMM.dd.yyy")}`;
   dateDiv.textContent = date;
 
   const deleteBtn = newBtn("Delete", "delete");
@@ -71,11 +71,20 @@ const renderBody = () => {
 
     return titleElement;
   };
-  const nav = newDivElement("nav");
-  nav.append(newH1Element("Projects:"));
-  const todoContent = newDivElement("content");
-  todoContent.append(newH1Element("Todo's:"));
 
-  document.body.append(nav, todoContent);
+  const titleDiv = newDivElement("titles");
+  titleDiv.append(newH1Element("Projects:"), newH1Element("Todo's:"));
+
+  const nav = newDivElement("nav");
+
+  const todoContent = newDivElement("content");
+
+  const bottomNav = newDivElement("bottom-nav");
+  bottomNav.append(
+    newBtn("New Project +", "new-project"),
+    newBtn("New Todo +", "new-todo")
+  );
+
+  document.body.append(titleDiv, nav, todoContent, bottomNav);
 };
 export { newProject, newTodo, renderBody };

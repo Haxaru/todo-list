@@ -1,72 +1,67 @@
 body {
-  /*Display stuff*/
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 20% 80%;
-  /*Box model stuff*/
+  margin: 0;
   height: 100vh;
+  display: grid;
+  grid-template: 1fr 8fr 1fr / 1fr 4fr;
+}
+
+.titles {
+  grid-area: 1 / 1 / 2 / 3;
+  display: flex;
+  gap: 15%;
+  background-color: blue;
 }
 
 .nav {
-  /*Display stuff*/
   display: grid;
-  grid-template-rows: repeat(auto 1fr);
-  /*Box model stuff*/
-  margin-right: 2vw;
+  height: 100%;
+  background-color: aqua;
 }
 
 .project-listing {
-  /*Display stuff*/
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  /*Box model stuff*/
-  border-bottom: 2px solid red;
+  justify-content: space-around;
+  transition: all 0.2s ease-in-out;
 }
 
-.project-listing button {
-  /*Box model stuff*/
-  height: 30%;
+.project-listing:hover {
+  background-color: #fff;
 }
 
 .content {
-  /*Display stuff*/
   display: grid;
+  padding: 2%;
+  gap: 2%;
   grid-template-columns: repeat(3, 1fr);
-  /*Miscellaneous*/
-  gap: 3%;
-}
-
-.content h1 {
-  /*Display stuff*/
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-auto-rows: min-content;
+  justify-content: start;
 }
 
 .todo-listing {
-  /*Box model stuff*/
-  padding: 10px;
-  border: 2px solid blue;
-  border-radius: 5px;
-}
-
-.todo-listing div:nth-child(odd) {
-  /*Display stuff*/
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.todo-listing div:nth-child(odd) h2 {
-  /*Box model stuff*/
-  margin-top: 0;
+.todo-listing div:nth-child(odd) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
 }
 
 .todo-listing div:nth-child(2) {
-  /*Box model stuff*/
   padding: 5%;
 }
-.todo-listing button {
-  /*Box model stuff*/
-  height: 30%;
+
+.bottom-nav {
+  display: flex;
+  background-color: rebeccapurple;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3%;
+  grid-area: 3 / 1 / 4 / 3;
 }
